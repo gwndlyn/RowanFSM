@@ -140,11 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RowanController.cpp" />
     <ClCompile Include="RowanDeclarations.h" />
     <ClCompile Include="RowanDiagram.cpp" />
+    <ClCompile Include="RowanStructs.cpp" />
     <ClCompile Include="RowanStructs.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="RowanController.h" />
     <ClInclude Include="RowanDiagram.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
