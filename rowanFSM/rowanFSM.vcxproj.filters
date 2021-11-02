@@ -21,6 +21,12 @@
     <ClCompile Include="RowanDiagram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RowanStructs.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RowanDeclarations.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RowanDiagram.h">

@@ -2,8 +2,8 @@
 
 #include "RowanDeclarations.h"
 
-#include <vector>
 #include <map>
+#include <vector>
 #include <string>
 
 namespace Rowan
@@ -11,9 +11,6 @@ namespace Rowan
 	//for sprite animation 
 	struct AnimationState
 	{
-		//std::string stateName{ "" };
-		//std::vector<Transition> conditions{};
-
 		int startFrame{ 0 };
 		int endFrame{ 0 };
 		float frameDelay{ 0.0f };
@@ -34,7 +31,7 @@ namespace Rowan
 		stateID toState{ undefState };
 
 		//conditions for transition
-		std::map<std::string, bool> conditions; //name, trigger
+		std::map<std::string, bool> conditionMap; //name, trigger
 
 		//methods
 		Transition(transID id, std::string nm, stateID from, stateID to)
@@ -45,6 +42,11 @@ namespace Rowan
 		Transition(Transition&& rhs) noexcept = default;
 		Transition& operator= (const Transition& rhs) = default;
 		Transition& operator= (Transition&& rhs) noexcept = default;
+
+		//helper functions
+		std::string addCondition(std::string name);
+		void removeCondition(std::string name);
+		void setCondition(std::string name, bool status);
 	};
 
 	struct State
@@ -54,7 +56,9 @@ namespace Rowan
 		std::string name{ "" };
 
 		bool isDirty{ false };
-		std::vector<transID> transitions{};
+		std::map<transID, Transition> transitionMap{};
+
+		//extra state info, TODO template this later
 		AnimationState animStateInfo{};
 
 		//methods
@@ -66,32 +70,17 @@ namespace Rowan
 		State(State&& rhs) noexcept = default;
 		State& operator= (const State& rhs) = default;
 		State& operator= (State&& rhs) noexcept = default;
+
+		//helper functions
+		transID addTransition(std::string name);
+		void removeTransition(transID id);
+		Transition& getTransition(transID id);
 	};
 
 	//template to reference from 
 	//avoid repeatable state creation, references instead
-	struct Diagram
-	{
+	//struct Diagram
+	//{
+	//};
 
-	};
-
-	//maintains the curr obj's state
-	//acts like a component //similar to Hekate's Agent
-	struct Controller
-	{
-		//give access to diagram
-		friend Diagram;
-
-		//FSM states
-		stateID currState{ undefState };
-		stateID prevState{ undefState };
-
-		Diagram* m_diagram; //might change to const ref
-	};
-
-	//acts like a system
-	struct Manager
-	{
-		std::vector<Controller> controllers;
-	};
 }

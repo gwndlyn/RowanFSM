@@ -140,7 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RowanDeclarations.h" />
     <ClCompile Include="RowanDiagram.cpp" />
+    <ClCompile Include="RowanStructs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RowanDiagram.h" />
