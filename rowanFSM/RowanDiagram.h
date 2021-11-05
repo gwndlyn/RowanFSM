@@ -1,13 +1,11 @@
 #pragma once
 
-#include "RowanStructs.h"
-
-#include <string>
-#include <map>
-#include <vector>
-
-namespace Rowan
-{
+//#include <string>
+//#include <map>
+//#include <vector>
+//
+//namespace Rowan
+//{
 	//class AnimationController
 	//{
 	//private:
@@ -27,5 +25,5 @@ namespace Rowan
 	//};
 
 
-}
+//}
 

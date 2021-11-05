@@ -27,6 +27,9 @@ namespace Rowan
 		//main methods
 		void init();
 		void update();
+
+		Controller() = default;
+		~Controller() = default;
 	};
 
 	//acts like a system

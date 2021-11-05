@@ -1,7 +1,7 @@
-#include "RowanDiagram.h"
-
-namespace Rowan
-{
+//#include "RowanDiagram.h"
+//
+//namespace Rowan
+//{
 	//void AnimationController::Init()
 	//{	}
 	//void AnimationController::update(float dt)
@@ -29,4 +29,4 @@ namespace Rowan
 	//	return true;
 	//}
 
-}
+//}

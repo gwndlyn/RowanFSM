@@ -38,15 +38,17 @@ namespace Rowan
 			: uid{ id }, name{ nm }, fromState{ from }, toState{ to } {}
 
 		//default methods
+		Transition() = default;
+		~Transition() = default;
 		Transition(const Transition& rhs) = default;
 		Transition(Transition&& rhs) noexcept = default;
 		Transition& operator= (const Transition& rhs) = default;
 		Transition& operator= (Transition&& rhs) noexcept = default;
 
 		//helper functions
-		std::string addCondition(std::string name);
-		void removeCondition(std::string name);
-		void setCondition(std::string name, bool status);
+		std::string addCondition(const std::string& name); //all states by default false
+		void removeCondition(const std::string& name);
+		void setCondition(const std::string& name, bool status);
 	};
 
 	struct State
@@ -63,16 +65,19 @@ namespace Rowan
 
 		//methods
 		State(stateID id, std::string nm)
-			: uid{ id }, name{ nm } {}
+			: uid{ id }, name{ nm }
+		{}
 
 		//default methods
+		State() = default;
+		~State() = default;
 		State(const State& rhs) = default;
 		State(State&& rhs) noexcept = default;
 		State& operator= (const State& rhs) = default;
 		State& operator= (State&& rhs) noexcept = default;
 
 		//helper functions
-		transID addTransition(std::string name);
+		transID addTransition(const std::string& name, stateID from, stateID to);
 		void removeTransition(transID id);
 		Transition& getTransition(transID id);
 	};

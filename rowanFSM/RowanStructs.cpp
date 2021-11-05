@@ -3,41 +3,48 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <iostream>
 
 namespace Rowan
 {
 	//transition functions
-	std::string Transition::addCondition(std::string name)
+	std::string Transition::addCondition(const std::string& name)
 	{
-		name = FindUnoccupiedKey<std::string, bool>(conditionMap, name);
-		conditionMap.emplace(name, false);
-		return name;
+		std::cout << __FUNCTION__ << std::endl;
+		std::string temp = FindUnoccupiedKey<std::string, bool>(conditionMap, name);
+		conditionMap.emplace(temp, false);
+		return temp;
 	}
-	void Transition::removeCondition(std::string name)
+	void Transition::removeCondition(const std::string& name)
 	{
+		std::cout << __FUNCTION__ << std::endl;
 		if (conditionMap.find(name) == conditionMap.end()) return;
 		conditionMap.erase(name);
 	}
-	void Transition::setCondition(std::string name, bool status)
+	void Transition::setCondition(const std::string& name, bool status)
 	{
+		std::cout << __FUNCTION__ << std::endl;
 		if (conditionMap.find(name) == conditionMap.end()) return;
 		conditionMap[name] = status;
 	}
 
 	//state functions
-	transID State::addTransition(std::string name)
+	transID State::addTransition(const std::string& name, stateID from, stateID to)
 	{
+		std::cout << __FUNCTION__ << std::endl;
 		transID id = FindUnoccupiedKey<transID, Transition>(transitionMap, 1);
-		transitionMap.emplace(id, name);
+		transitionMap.emplace(id, Transition{id, name, from, to});
 		return id;
 	}
 	void State::removeTransition(transID id)
 	{
+		std::cout << __FUNCTION__ << std::endl;
 		if (transitionMap.find(id) == transitionMap.end()) return;
 		transitionMap.erase(id);
 	}
 	Transition& State::getTransition(transID id) 
 	{ 
-		return transitionMap[id]; 
+		std::cout << __FUNCTION__ << std::endl;
+		return transitionMap[id];
 	}
 }

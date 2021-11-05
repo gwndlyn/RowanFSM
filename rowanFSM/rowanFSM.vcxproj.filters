@@ -21,25 +21,25 @@
     <ClCompile Include="RowanDiagram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RowanStructs.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RowanDeclarations.h">
+    <ClCompile Include="RowanStructs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RowanController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RowanStructs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RowanDiagram.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RowanStructs.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RowanController.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RowanDeclarations.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
