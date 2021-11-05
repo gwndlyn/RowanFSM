@@ -27,10 +27,14 @@ int main()
 	Rowan::transID t3 = sMap[s3].addTransition("TransS3ToS1", s3, s1);
 
 	std::cout << "=== Test Add Conditions ===" << std::endl;
-	auto& tMap = ct.stateMap[ct.currState].transitionMap;
-	std::string c1 = tMap[t1].addCondition("Cond1");
-	std::string c2 = tMap[t2].addCondition("Cond2");
-	std::string c3 = tMap[t3].addCondition("Cond3");
+	//auto& tMap = ct.stateMap[ct.currState].transitionMap;
+	//std::string c1 = tMap[t1].addCondition("Cond1");
+	//std::string c2 = tMap[t2].addCondition("Cond2");
+	//std::string c3 = tMap[t3].addCondition("Cond3");
+
+	std::string c1 = ct.stateMap[s1].transitionMap[t1].addCondition("Cond1");
+	std::string c2 = ct.stateMap[s2].transitionMap[t2].addCondition("Cond2");
+	std::string c3 = ct.stateMap[s3].transitionMap[t3].addCondition("Cond3");
 
 
 	std::cout << "=== Test Set Start and Curr State ===" << std::endl;
