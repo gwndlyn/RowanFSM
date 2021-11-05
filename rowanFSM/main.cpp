@@ -40,9 +40,11 @@ int main()
 	std::cout << "=== Test Set Start and Curr State ===" << std::endl;
 	ct.currState = ct.startState = s1;
 
+	int testCount = 0;
 	//test state changes
 	while (1)
 	{
+
 		std::cout << "=== Test Condition Changing ===" << std::endl;
 		for (auto& t : ct.stateMap[ct.currState].transitionMap)
 		{
@@ -68,6 +70,10 @@ int main()
 
 		//test run update
 		ct.update();
+
+		//end the testing loop
+		++testCount; 
+		if (testCount > 3) break;
 	}
 
 	//remove transitions
